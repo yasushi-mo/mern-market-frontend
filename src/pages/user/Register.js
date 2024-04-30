@@ -1,9 +1,18 @@
 import { useState } from "react";
 
 export const Register = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [newUser, setNewUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (event) => {
+    setNewUser({
+      ...newUser,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -15,11 +24,7 @@ export const Register = () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          password: password,
-        }),
+        body: JSON.stringify(newUser),
       });
       const jsonResponse = await response.json();
       alert(jsonResponse.message);
@@ -33,24 +38,24 @@ export const Register = () => {
       <h1>ユーザー登録ページ</h1>
       <form onSubmit={handleSubmit}>
         <input
-          value={name}
-          onChange={(event) => setName(event.target.value)}
+          value={newUser.name}
+          onChange={handleChange}
           type="text"
           name="name"
           placeholder="名前"
           required
         />
         <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          value={newUser.email}
+          onChange={handleChange}
           type="text"
           name="email"
           placeholder="メールアドレス"
           required
         />
         <input
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
+          value={newUser.password}
+          onChange={handleChange}
           type="text"
           name="password"
           placeholder="パスワード"
