@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const ReadAllItems = () => {
   const [allItems, setAllItems] = useState();
 
-  const getAllItems = async () => {
-    try {
-      const response = await fetch("http://localhost:5000");
-      const jsonResponse = await response.json();
-      setAllItems(jsonResponse);
-    } catch (error) {}
-  };
+  useEffect(() => {
+    const getAllItems = async () => {
+      try {
+        const response = await fetch("http://localhost:5000");
+        const jsonResponse = await response.json();
+        setAllItems(jsonResponse);
+      } catch (error) {}
+    };
+    getAllItems();
+  }, []);
 
   return (
     <div>
@@ -23,7 +26,6 @@ export const ReadAllItems = () => {
             <p>{item.description}</p>
           </div>
         ))}
-      <button onClick={getAllItems}>全データ取得</button>
     </div>
   );
 };
