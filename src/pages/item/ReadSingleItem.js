@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export const ReadSingleItem = () => {
@@ -11,15 +11,17 @@ export const ReadSingleItem = () => {
     description: "",
   });
 
-  const getSingleItem = async () => {
-    const response = await fetch(`http://localhost:5000/item/${params.id}`);
-    const jsonResponse = await response.json();
-    setItem(jsonResponse.singleItem);
-  };
+  useEffect(() => {
+    const getSingleItem = async () => {
+      const response = await fetch(`http://localhost:5000/item/${params.id}`);
+      const jsonResponse = await response.json();
+      setItem(jsonResponse.singleItem);
+    };
+    getSingleItem();
+  }, [params.id]);
 
   return (
     <div>
-      <h1>1つのアイテムデータ</h1>
       <div>
         {item.image && (
           <img src={require(`../../images/${item.image}.jpg`)} alt="item" />
@@ -31,7 +33,6 @@ export const ReadSingleItem = () => {
         <hr />
         <p>{item.description}</p>
       </div>
-      <button onClick={getSingleItem}>データ取得</button>
     </div>
   );
 };
