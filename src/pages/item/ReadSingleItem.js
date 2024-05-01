@@ -6,8 +6,8 @@ export const ReadSingleItem = () => {
 
   const [item, setItem] = useState({
     title: "",
-    price: "",
     image: "",
+    price: "",
     description: "",
   });
 
