@@ -24,6 +24,7 @@ export const CreateItem = () => {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
+          authorization: localStorage.getItem("token"), // TODO: use constant for key
         },
         body: JSON.stringify(newItem),
       });
