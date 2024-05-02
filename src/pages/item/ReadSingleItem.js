@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export const ReadSingleItem = () => {
   const params = useParams();
@@ -32,6 +32,10 @@ export const ReadSingleItem = () => {
         <h2>¥{item.price}</h2>
         <hr />
         <p>{item.description}</p>
+        <div>
+          <Link to={`/item/update/${params.id}`}>アイテム編集</Link>
+          <Link to={`/item/delete/${params.id}`}>アイテム削除</Link>
+        </div>
       </div>
     </div>
   );
