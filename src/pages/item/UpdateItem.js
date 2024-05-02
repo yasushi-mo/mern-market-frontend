@@ -2,15 +2,18 @@ import { useEffect, useState } from "react";
 import { ItemForm } from "../../components/item/ItemForm";
 import { useParams } from "react-router-dom";
 import { LOCAL_STORAGE_TOKEN_KEY } from "../../utils/constants";
+import { useAuth } from "../../utils/useAuth";
 
 export const UpdateItem = () => {
   const params = useParams();
+  const loginUser = useAuth();
 
   const [item, setItem] = useState({
     title: "",
     image: "",
     price: "",
     description: "",
+    email: "",
   });
 
   const handleChange = (event) => {
@@ -51,6 +54,8 @@ export const UpdateItem = () => {
     };
     getSingleItem();
   }, [params.id]);
+
+  if (loginUser !== item.email) return <h1>編集権限がありません</h1>;
 
   return (
     <div>

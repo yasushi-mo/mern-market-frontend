@@ -5,7 +5,6 @@ import { useAuth } from "../../utils/useAuth";
 
 export const CreateItem = () => {
   const loginUser = useAuth();
-  console.log("🚀 ~ CreateItem ~ loginUser:", loginUser);
 
   const [item, setItem] = useState({
     title: "",
