@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ItemForm } from "../../components/ItemForm";
+import { LOCAL_STORAGE_TOKEN_KEY } from "../../utils/constants";
 
 export const CreateItem = () => {
   const [item, setItem] = useState({
@@ -25,7 +26,7 @@ export const CreateItem = () => {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          authorization: localStorage.getItem("token"), // TODO: use constant for key
+          authorization: localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY),
         },
         body: JSON.stringify(item),
       });

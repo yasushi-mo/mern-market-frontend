@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ItemForm } from "../../components/ItemForm";
 import { useParams } from "react-router-dom";
+import { LOCAL_STORAGE_TOKEN_KEY } from "../../utils/constants";
 
 export const UpdateItem = () => {
   const params = useParams();
@@ -30,7 +31,7 @@ export const UpdateItem = () => {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            authorization: localStorage.getItem("token"),
+            authorization: localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY),
           },
           body: JSON.stringify(item),
         }
