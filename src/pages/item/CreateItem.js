@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ItemForm } from "../../components/ItemForm";
 
 export const CreateItem = () => {
-  const [newItem, setNewItem] = useState({
+  const [item, setItem] = useState({
     title: "",
     image: "",
     price: "",
@@ -10,8 +10,8 @@ export const CreateItem = () => {
   });
 
   const handleChange = (event) => {
-    setNewItem({
-      ...newItem,
+    setItem({
+      ...item,
       [event.target.name]: event.target.value,
     });
   };
@@ -27,7 +27,7 @@ export const CreateItem = () => {
           "Content-Type": "application/json",
           authorization: localStorage.getItem("token"), // TODO: use constant for key
         },
-        body: JSON.stringify(newItem),
+        body: JSON.stringify(item),
       });
       const jsonResponse = await response.json();
       alert(jsonResponse.message);
@@ -40,7 +40,7 @@ export const CreateItem = () => {
     <div>
       <h1>アイテム作成</h1>
       <ItemForm
-        item={newItem}
+        item={item}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         buttonLabel="作成"
