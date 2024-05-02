@@ -2,15 +2,18 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ItemDisplay } from "../../components/item/ItemDisplay";
 import { LOCAL_STORAGE_TOKEN_KEY } from "../../utils/constants";
+import { useAuth } from "../../utils/useAuth";
 
 export const DeleteItem = () => {
   const params = useParams();
+  const loginUser = useAuth();
 
   const [item, setItem] = useState({
     title: "",
     image: "",
     price: "",
     description: "",
+    email: "",
   });
 
   const handleSubmit = async (event) => {
@@ -43,6 +46,8 @@ export const DeleteItem = () => {
     };
     getSingleItem();
   }, [params.id]);
+
+  if (loginUser !== item.email) return <h1>権限がありません</h1>;
 
   return (
     <div>

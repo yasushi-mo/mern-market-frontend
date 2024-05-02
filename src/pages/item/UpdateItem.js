@@ -55,7 +55,7 @@ export const UpdateItem = () => {
     getSingleItem();
   }, [params.id]);
 
-  if (loginUser !== item.email) return <h1>編集権限がありません</h1>;
+  if (loginUser !== item.email) return <h1>権限がありません</h1>;
 
   return (
     <div>
