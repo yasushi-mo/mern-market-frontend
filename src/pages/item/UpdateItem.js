@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ItemForm } from "../../components/ItemForm";
+import { ItemForm } from "../../components/item/ItemForm";
 import { useParams } from "react-router-dom";
 import { LOCAL_STORAGE_TOKEN_KEY } from "../../utils/constants";
 

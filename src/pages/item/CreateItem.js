@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ItemForm } from "../../components/ItemForm";
+import { ItemForm } from "../../components/item/ItemForm";
 import { LOCAL_STORAGE_TOKEN_KEY } from "../../utils/constants";
 
 export const CreateItem = () => {

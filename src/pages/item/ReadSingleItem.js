@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ItemDisplay } from "../../components/item/ItemDisplay";
 
 export const ReadSingleItem = () => {
   const params = useParams();
@@ -22,20 +23,10 @@ export const ReadSingleItem = () => {
 
   return (
     <div>
+      <ItemDisplay item={item} />
       <div>
-        {item.image && (
-          <img src={require(`../../images/${item.image}.jpg`)} alt="item" />
-        )}
-      </div>
-      <div>
-        <h1>{item.title}</h1>
-        <h2>¥{item.price}</h2>
-        <hr />
-        <p>{item.description}</p>
-        <div>
-          <Link to={`/item/update/${params.id}`}>アイテム編集</Link>
-          <Link to={`/item/delete/${params.id}`}>アイテム削除</Link>
-        </div>
+        <Link to={`/item/update/${params.id}`}>アイテム編集</Link>
+        <Link to={`/item/delete/${params.id}`}>アイテム削除</Link>
       </div>
     </div>
   );
