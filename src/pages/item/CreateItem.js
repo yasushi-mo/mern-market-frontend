@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { ItemForm } from "../../components/item/ItemForm";
 import { LOCAL_STORAGE_TOKEN_KEY } from "../../utils/constants";
+import { useAuth } from "../../utils/useAuth";
 
 export const CreateItem = () => {
+  const loginUser = useAuth();
+  console.log("🚀 ~ CreateItem ~ loginUser:", loginUser);
+
   const [item, setItem] = useState({
     title: "",
     image: "",
@@ -36,6 +40,8 @@ export const CreateItem = () => {
       alert("アイテム作成失敗");
     }
   };
+
+  if (!loginUser) return;
 
   return (
     <div>
