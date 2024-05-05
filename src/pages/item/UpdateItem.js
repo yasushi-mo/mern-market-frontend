@@ -55,11 +55,12 @@ export const UpdateItem = () => {
     getSingleItem();
   }, [params.id]);
 
-  if (loginUser !== item.email) return <h1>権限がありません</h1>;
+  if (loginUser !== item.email)
+    return <h1 className="page-title">権限がありません</h1>;
 
   return (
     <div>
-      <h1>アイテム編集</h1>
+      <h1 className="page-title">アイテム編集</h1>
       <ItemForm
         item={item}
         handleChange={handleChange}

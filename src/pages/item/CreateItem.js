@@ -44,7 +44,7 @@ export const CreateItem = () => {
 
   return (
     <div>
-      <h1>アイテム作成</h1>
+      <h1 className="page-title">アイテム作成</h1>
       <ItemForm
         item={item}
         handleChange={handleChange}

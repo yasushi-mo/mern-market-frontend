@@ -7,7 +7,7 @@ export const ItemDisplay = ({ item }) => {
         )}
       </div>
       <div>
-        <h1>{item.title}</h1>
+        <h1 className="page-title">{item.title}</h1>
         <h2>¥{item.price}</h2>
         <hr />
         <p>{item.description}</p>

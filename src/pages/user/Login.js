@@ -35,7 +35,7 @@ export const Login = () => {
 
   return (
     <div>
-      <h1>ログイン</h1>
+      <h1 className="page-title">ログイン</h1>
       <form onSubmit={handleSubmit}>
         <input
           value={loginInfo.email}
