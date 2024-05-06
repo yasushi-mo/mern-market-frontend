@@ -16,14 +16,16 @@ export const ReadAllItems = () => {
   }, []);
 
   return (
-    <div>
+    <div className="grid-container-in">
       {allItems &&
         allItems.allItems.map((item) => (
-          <Link key={item._id} to={`/item/${item._id}`}>
+          <Link className="card" key={item._id} to={`/item/${item._id}`}>
             <img src={require(`../../images/${item.image}.jpg`)} alt="item" />
-            <h2>¥{item.price}</h2>
-            <h3>{item.title}</h3>
-            <p>{item.description.substring(0, 80)}...</p>
+            <div className="texts-area">
+              <h2>¥{item.price}</h2>
+              <h3>{item.title}</h3>
+              <p>{item.description.substring(0, 80)}...</p>
+            </div>
           </Link>
         ))}
     </div>

@@ -47,11 +47,12 @@ export const DeleteItem = () => {
     getSingleItem();
   }, [params.id]);
 
-  if (loginUser !== item.email) return <h1>権限がありません</h1>;
+  if (loginUser !== item.email)
+    return <h1 className="page-title">権限がありません</h1>;
 
   return (
-    <div>
-      <h1>アイテム削除</h1>
+    <div className="delete-page">
+      <h1 className="page-title">アイテム削除</h1>
       <form onSubmit={handleSubmit}>
         <ItemDisplay item={item} />
         <button>削除</button>

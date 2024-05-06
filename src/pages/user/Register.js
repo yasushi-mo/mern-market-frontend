@@ -35,7 +35,7 @@ export const Register = () => {
 
   return (
     <div>
-      <h1>ユーザー登録ページ</h1>
+      <h1 className="page-title">ユーザー登録ページ</h1>
       <form onSubmit={handleSubmit}>
         <input
           value={newUser.name}
