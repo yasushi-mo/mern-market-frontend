@@ -51,7 +51,7 @@ export const DeleteItem = () => {
     return <h1 className="page-title">権限がありません</h1>;
 
   return (
-    <div>
+    <div className="delete-page">
       <h1 className="page-title">アイテム削除</h1>
       <form onSubmit={handleSubmit}>
         <ItemDisplay item={item} />

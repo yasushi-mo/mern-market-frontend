@@ -22,7 +22,7 @@ export const ReadSingleItem = () => {
   }, [params.id]);
 
   return (
-    <div>
+    <div className="grid-container-si">
       <ItemDisplay item={item} />
       <div>
         <Link to={`/item/update/${params.id}`}>アイテム編集</Link>
