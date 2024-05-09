@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ItemForm } from "../../components/item/ItemForm";
 import { LOCAL_STORAGE_TOKEN_KEY } from "../../utils/constants";
 import { useAuth } from "../../utils/useAuth";
+import { Helmet } from "react-helmet-async";
 
 export const CreateItem = () => {
   const loginUser = useAuth();
@@ -44,6 +45,9 @@ export const CreateItem = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>アイテム作成</title>
+      </Helmet>
       <h1 className="page-title">アイテム作成</h1>
       <ItemForm
         item={item}

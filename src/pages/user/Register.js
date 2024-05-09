@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 export const Register = () => {
   const [newUser, setNewUser] = useState({
@@ -35,7 +36,10 @@ export const Register = () => {
 
   return (
     <div>
-      <h1 className="page-title">ユーザー登録ページ</h1>
+      <Helmet>
+        <title>ユーザー登録</title>
+      </Helmet>
+      <h1 className="page-title">ユーザー登録</h1>
       <form onSubmit={handleSubmit}>
         <input
           value={newUser.name}

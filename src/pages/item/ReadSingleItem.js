@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ItemDisplay } from "../../components/item/ItemDisplay";
+import { Helmet } from "react-helmet-async";
 
 export const ReadSingleItem = () => {
   const params = useParams();
@@ -23,6 +24,9 @@ export const ReadSingleItem = () => {
 
   return (
     <div className="grid-container-si">
+      <Helmet>
+        <title>{item?.title}</title>
+      </Helmet>
       <ItemDisplay item={item} />
       <div>
         <Link to={`/item/update/${params.id}`}>アイテム編集</Link>

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { ItemDisplay } from "../../components/item/ItemDisplay";
 import { LOCAL_STORAGE_TOKEN_KEY } from "../../utils/constants";
 import { useAuth } from "../../utils/useAuth";
+import { Helmet } from "react-helmet-async";
 
 export const DeleteItem = () => {
   const params = useParams();
@@ -52,6 +53,9 @@ export const DeleteItem = () => {
 
   return (
     <div className="delete-page">
+      <Helmet>
+        <title>アイテム削除</title>
+      </Helmet>
       <h1 className="page-title">アイテム削除</h1>
       <form onSubmit={handleSubmit}>
         <ItemDisplay item={item} />
