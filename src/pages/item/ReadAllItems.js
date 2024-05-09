@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 export const ReadAllItems = () => {
@@ -17,6 +18,9 @@ export const ReadAllItems = () => {
 
   return (
     <div className="grid-container-in">
+      <Helmet>
+        <title>トップ</title>
+      </Helmet>
       {allItems &&
         allItems.allItems.map((item) => (
           <Link className="card" key={item._id} to={`/item/${item._id}`}>

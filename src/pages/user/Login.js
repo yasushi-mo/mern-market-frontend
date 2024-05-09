@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 export const Login = () => {
   const [loginInfo, setLoginInfo] = useState({
@@ -35,6 +36,9 @@ export const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>ログイン</title>
+      </Helmet>
       <h1 className="page-title">ログイン</h1>
       <form onSubmit={handleSubmit}>
         <input
