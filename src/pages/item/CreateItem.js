@@ -50,7 +50,7 @@ export const CreateItem = () => {
         <title>アイテム作成</title>
       </Helmet>
       <h1 className="page-title">アイテム作成</h1>
-      <ImageUpload />
+      <ImageUpload item={item} setItem={setItem} />
       <ItemForm
         item={item}
         handleChange={handleChange}

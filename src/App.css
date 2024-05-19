@@ -335,19 +335,19 @@ header * li a:hover {
 }
 
 /* Img Form */
-.img-input {
+.img-upload {
   display: grid;
   grid-template-columns: 0.8fr 0.2fr;
   gap: 1rem;
 }
 
-.img-input > input {
+.img-upload > input {
   display: block;
   background-color: rgb(221, 221, 221);
   padding: 0.4rem 0 0 0.5rem;
 }
 
-.img-input > button {
+.img-upload > button {
   padding: 0;
   font-size: 1.4rem;
   margin-bottom: 2rem;
@@ -355,29 +355,29 @@ header * li a:hover {
   background: #858585;
 }
 
-.img-input > button:hover {
+.img-upload > button:hover {
   opacity: 0.8;
   background: linear-gradient(135deg, #63a1ff, #73ff92);
 }
 
-.img-input > button:disabled,
-.img-input > button[disabled] {
+.img-upload > button:disabled,
+.img-upload > button[disabled] {
   background: #858585;
   color: rgb(165, 165, 165);
 }
 
-.img-input > button:disabled,
-.img-input > button[disabled]:hover {
+.img-upload > button:disabled,
+.img-upload > button[disabled]:hover {
   opacity: 1;
   cursor: not-allowed;
 }
 
 @media (max-width: 400px) {
-  .img-input {
+  .img-upload {
     grid-template-columns: 1fr;
     gap: 0rem;
   }
-  .img-input > button {
+  .img-upload > button {
     margin: -1rem 0 3rem;
     height: 3rem;
   }
