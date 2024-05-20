@@ -5,7 +5,15 @@ const CLOUD_NAME = process.env.REACT_APP_CLOUDINARY_CLOUD_NAME;
 export const ImageUpload = (props) => {
   const [imageFile, setImageFile] = useState("");
 
-  const handleClick = async () => {
+  const handleChooseImage = (event) => {
+    if (!event.target.files || event.target.files.length === 0)
+      return alert("Failed to choose image");
+
+    const file = event.target.files[0];
+    setImageFile(URL.createObjectURL(file));
+  };
+
+  const handleUploadImage = async () => {
     try {
       const data = new FormData();
       data.append("file", imageFile);
@@ -37,10 +45,10 @@ export const ImageUpload = (props) => {
     <div className="img-upload">
       <input
         type="file"
-        onChange={(event) => setImageFile(event.target.files[0])}
+        onChange={handleChooseImage}
         accept="image/png, image/jpg"
       />
-      <button onClick={handleClick} disabled={!imageFile}>
+      <button onClick={handleUploadImage} disabled={!imageFile}>
         画像アップロード
       </button>
     </div>
